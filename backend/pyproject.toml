@@ -1,0 +1,33 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.16.3",
+    "fastapi>=0.116.0",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.1.1",
+    "python-telegram-bot>=22.2",
+    "sqlalchemy>=2.0.41",
+    "uvicorn>=0.35.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.16.1",
+    "ruff>=0.12.2",
+]
+[project.scripts]
+dev = "uvicorn src.main:app --reload" 
+format = "ruff format ."
+lint = "ruff check ."
+typecheck = "mypy src/"
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+[tool.ruff.lint]
+select = [ "E", "F", "I"]
+
